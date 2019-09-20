@@ -4,7 +4,7 @@ importdata <- function (directory, id = 1:332) {
         data <- data.frame()
         
         for (i in id) {
-                newdata <- read.csv(sprintf(paste(directory,"/%03d.csv",sep = '', collapse = ''),i))
+                newdata <- read.csv(paste("HW_Week_2/",directory,"/",sprintf("%03d.csv",i),sep = '', collapse = ''))
                 data <- rbind(data,newdata)
         }
         return(data)
