@@ -1,0 +1,20 @@
+data<-read.csv("hw1_data.csv",header = TRUE)
+data[1:2,]
+nrow(data)
+data[(nrow(data)-1):nrow(data),]
+data[47,1]
+badozone<-is.na(data$Ozone)
+length(data$Ozone[badozone])
+mean(data$Ozone[!badozone])
+bad<-is.na(data)
+good<-(data$Ozone>31)*(data$Temp>90)
+u<-as.logical(good*!bad[2])
+bad2<-is.na(data[u,2])
+good2<-data[u,2]
+mean(good2[!bad2])
+month<-data$Month
+month6<-month==6
+mean(data$Temp[month6])
+good<-complete.cases(data)
+month5<-month==5
+max(data[good,]$Ozone[month5])
